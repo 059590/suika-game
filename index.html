@@ -2,7 +2,13 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+
+    <meta name="HandheldFriendly" content="true" />
 
     <link
       rel="apple-touch-icon"
@@ -82,9 +88,214 @@
 
     <meta name="theme-color" content="#f7f4c8" />
 
-    <title>수박 게임</title>
-    <script type="module" crossorigin src="./assets/index-jBENRKsl.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-Rbfn60Ek.css">
+    <title>Suika Game</title>
+
+    <style>
+      html,
+      body,
+      div,
+      span,
+      applet,
+      object,
+      iframe,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      a,
+      abbr,
+      acronym,
+      address,
+      big,
+      cite,
+      code,
+      del,
+      dfn,
+      em,
+      img,
+      ins,
+      kbd,
+      q,
+      s,
+      samp,
+      small,
+      strike,
+      strong,
+      sub,
+      sup,
+      tt,
+      var,
+      b,
+      u,
+      i,
+      center,
+      dl,
+      dt,
+      dd,
+      ol,
+      ul,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td,
+      article,
+      aside,
+      canvas,
+      details,
+      embed,
+      figure,
+      figcaption,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      output,
+      ruby,
+      section,
+      summary,
+      time,
+      mark,
+      audio,
+      video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      /* HTML5 display-role reset for older browsers */
+      article,
+      aside,
+      details,
+      figcaption,
+      figure,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      section {
+        display: block;
+      }
+      body {
+        line-height: 1;
+      }
+      ol,
+      ul {
+        list-style: none;
+      }
+      blockquote,
+      q {
+        quotes: none;
+      }
+      blockquote:before,
+      blockquote:after,
+      q:before,
+      q:after {
+        content: "";
+        content: none;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+
+      html {
+        /* 텍스트 선택 방지 */
+        -webkit-user-select: none !important;
+        -moz-user-select: -moz-none !important;
+        -ms-user-select: none !important;
+        user-select: none !important;
+
+        /* pinch zoom disable */
+        -webkit-text-size-adjust: none;
+        text-size-adjust: none;
+        touch-action: none;
+      }
+
+      body {
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        background-color: #f7f4c8;
+
+        overflow-x: hidden;
+        overflow-y: hidden;
+
+        position: relative;
+      }
+
+      :root {
+        font-size: 10px;
+      }
+
+      /* #root가 비어있지 않을 때, 형제 #loadingBox 선택하여 css를 적용한다 */
+      /* #root:not(:empty) ~ #loadingBox {
+        display: none;
+      } */
+
+      #loadingBox {
+        width: 100vw;
+        height: 100vh;
+        background-color: #f7f4c8;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 100000;
+        transform: translate(-50%, -50%);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+      }
+
+      #loading {
+        width: 50px;
+        height: 50px;
+
+        border: 8px solid rgba(230, 177, 67, 0.3);
+        border-radius: 50%;
+        border-top-color: #159d0d;
+
+        animation: 0.5s ease-in-out infinite spin;
+      }
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      #loadingText {
+        font-size: 16px;
+        line-height: normal;
+        font-weight: bold;
+        color: #159d0d;
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-hQ8MPWsz.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-dNpGllsT.css">
   </head>
   <body
     oncontextmenu="return false"
@@ -93,5 +304,16 @@
     onkeydown="return false"
   >
     <div id="root"></div>
+    <!-- <div id="advertisement">광고자리</div> -->
+
+    <!--
+      bundle을 다운로드 받는 동안, 아래 loadingBox화면을 띄운다
+      inline style css는 css 파일 연동 시간을 단축한다
+    -->
+    <div id="loadingBox">
+      <div id="loading"></div>
+      <h3 id="loadingText">Suika Game</h3>
+    </div>
+
   </body>
 </html>
